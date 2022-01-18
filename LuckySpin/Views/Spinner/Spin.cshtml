@@ -2,13 +2,17 @@
 @inject LuckySpin.Models.TextTransformService Transform
 @{
     Layout = "_Layout";
- }
+}
 
-
+@{ <!--Model's randomized values stored in variables prior to use to circumvent DOM issue with h2 element not loading correctly.-->
+    var a = Model.A;
+    var b = Model.B;
+    var c = Model.C;
+}
 <h1> Lucky Spin</h1>
 <h2 style="display:@Model.Display">You Won!</h2>
-<h3></h3>
+<h3>Player Name: @Model.Player.FirstName</h3>
+<h3>Player Luck: @Model.Player.Luck</h3>
 <button onclick='history.go(0)'>Spin</button>
-<div>@Model.A</div><div>@Model.B</div><div>@Model.C</div>
-
+<div>@a</div><div>@b</div><div>@c</div>
 <img src="/Images/LuckySpinCoins.jpg" class="animated bounce" alt="Coins" style="display:@Model.Display" />
